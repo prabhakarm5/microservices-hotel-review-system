@@ -1,0 +1,23 @@
+package com.user.UserService.services;
+
+import java.util.List;
+
+import com.user.UserService.entities.User;
+
+public interface UserService {
+
+    // user operations
+
+    // create
+    User saveUser(User user);
+
+    // get all user
+    List<User> getAllUser();
+
+    // get single user of given id
+    User getUser(String userId);
+
+    User updateUser(User user, String userId);
+
+    void deleteUser(String userId);
+}
