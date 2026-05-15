@@ -1,0 +1,19 @@
+{
+	"folders": [
+		{
+			"path": "../../../../../../../../../UserService"
+		},
+		{
+			"path": "../../../../../../../.."
+		},
+		{
+			"path": "../../../../../../../../../RatingService"
+		},
+		{
+			"path": "../../../../../../../../../ServiceRegistry"
+		}
+	],
+	"settings": {
+		"java.debug.settings.onBuildFailureProceed": true
+	}
+}
