@@ -17,4 +17,10 @@ public interface RatingService {
 
     // get all ratings by hotel id
     List<Rating> getRatingsByHotelId(String hotelId);
+
+    // update rating
+    public Rating updateRating(String ratingId, Rating rating);
+
+    // delete rating
+    public Rating deleteRating(String ratingId);
 }

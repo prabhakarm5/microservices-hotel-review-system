@@ -39,4 +39,23 @@ public class RatingServiceImpl implements RatingService {
         return ratingRepository.findByHotelId(hotelId);
     }
 
+    @Override
+    public Rating updateRating(String ratingId, Rating rating) {
+        Rating existingRating = ratingRepository.findById(ratingId)
+                .orElseThrow(() -> new RuntimeException("Rating not found with id: " + ratingId));
+
+        existingRating.setRating(rating.getRating());
+        existingRating.setFeedback(rating.getFeedback());
+
+        return ratingRepository.save(existingRating);
+    }
+
+    @Override
+    public Rating deleteRating(String ratingId) {
+        Rating rating = ratingRepository.findById(ratingId)
+                .orElseThrow(() -> new RuntimeException("Rating not found with id: " + ratingId));
+        ratingRepository.deleteById(ratingId);
+        return rating;
+    }
+
 }

@@ -7,6 +7,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -46,5 +48,21 @@ public class RatingController {
     @GetMapping("/hotels/{hotelId}")
     public ResponseEntity<List<Rating>> getRatingsByHotelId(@PathVariable String hotelId) {
         return ResponseEntity.ok(ratingService.getRatingsByHotelId(hotelId));
+    }
+
+    // update rating
+    @PutMapping("/{ratingId}")
+    public ResponseEntity<Rating> updateRating(@PathVariable String ratingId, @RequestBody Rating rating) {
+        return ResponseEntity.ok(ratingService.updateRating(ratingId, rating));
+    }
+
+    // delete rating
+    @DeleteMapping("/{ratingId}")
+    public ResponseEntity<Rating> deleteRating(@PathVariable String ratingId) {
+        Rating deletedRating = ratingService.deleteRating(ratingId);
+
+        //agr data delete ho gaya to 200 ok ke sath deleted rating return karenge
+        //aur data delete nahi hua to 404 not found ke sath error message return karenge
+        return ResponseEntity.ok(deletedRating);
     }
 }
