@@ -85,7 +85,7 @@ public class UserServiceImpl implements UserService {
             // .getForEntity("http://HOTELSERVICE/hotels/" + rating.getHotelId(),
             // Hotel.class);
             Hotel hotel = hotelService.getHotel(rating.getHotelId().trim());
-            rating.setHotel(hotel);
+            // rating.setHotel(hotel);
             // logger.info("response hotel code", hotelResponse.getStatusCode());
             // set the hotel to rating
             rating.setHotel(hotel);
@@ -111,12 +111,19 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void deleteUser(String userId) {
-        // get user from database with the help of user repository
-        User existingUser = userRepository.findById(userId).orElseThrow(
-                () -> new ResourceNotFoundException("User with given id is not found on server !! : " + userId));
-
-        userRepository.delete(existingUser);
+    public User deleteUser(String userId) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'deleteUser'");
     }
+
+    // @Override
+    // public User deleteUser(String userId) {
+    // // get user from database with the help of user repository
+    // User existingUser = userRepository.findById(userId).orElseThrow(
+    // () -> new ResourceNotFoundException("User with given id is not found on
+    // server !! : " + userId));
+
+    // userRepository.delete(existingUser);
+    // }
 
 }

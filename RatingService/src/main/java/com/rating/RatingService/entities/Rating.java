@@ -12,7 +12,7 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Document(collection = "user_ratings")
+@Document(collection = "ratings")
 public class Rating {
 
     @Id
